@@ -1,0 +1,3 @@
+{
+  productionBrowserSourceMaps: false
+} 
