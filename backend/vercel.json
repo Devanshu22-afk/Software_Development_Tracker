@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "api/*.py": {
+      "runtime": "python3.9"
+    }
+  },
+  "env": {
+    "FLASK_ENV": "production",
+    "FLASK_APP": "app.py"
+  }
+} 
