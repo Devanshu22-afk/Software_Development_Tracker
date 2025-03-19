@@ -6,6 +6,12 @@
   },
   "env": {
     "FLASK_ENV": "production",
-    "FLASK_APP": "app.py"
-  }
+    "FLASK_APP": "app.py",
+    "FLASK_DEBUG": "0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "routes": [
+    { "src": "/socket.io/(.*)", "dest": "app.py" },
+    { "src": "/api/(.*)", "dest": "app.py" }
+  ]
 } 

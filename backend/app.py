@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_socketio import SocketIO
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from datetime import datetime
@@ -22,11 +23,17 @@ if os.getenv('DATABASE_URL'):
     if os.getenv('DATABASE_URL').startswith("postgres://"):
         app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
 
-# Initialize CORS
-CORS(app)
+# Initialize CORS with WebSocket support
+CORS(app, resources={
+    r"/*": {"origins": "*"},
+    r"/socket.io/*": {"origins": "*"}
+})
 
 # Initialize SQLAlchemy
 db = SQLAlchemy(app)
+
+# Initialize SocketIO
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 # Define models directly in this file to avoid circular imports
 class Employee(db.Model):
