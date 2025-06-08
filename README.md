@@ -168,6 +168,10 @@ A real-time web application for tracking software development projects, managing
 - project_accepted
 - project_rejected
 
+### Screenshots:-
+![image](https://github.com/user-attachments/assets/a5c2b0f9-8291-4a61-8bb8-d7afdd00508c)
+
+
 ## Contributing
 
 1. Fork the repository
